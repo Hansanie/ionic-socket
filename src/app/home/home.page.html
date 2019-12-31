@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-title style="text-align:center">
+  
+  Chat App
+  
+  </ion-title>
+  
+  </ion-header>
+  
+  <ion-content padding>
+  
+  <ion-grid>
+  
+  <ion-row *ngFor="let message of chats">
+  
+  <ion-col col-9 class="message" [ngClass]="{'my_message': message.from === nickname, 'other_message': message.from !== nickname}">
+  
+  <span>{{ message.message| json }}</span>
+  
+  </ion-col>
+  
+  </ion-row>
+  
+  </ion-grid>
+  </ion-content>
+  
+  <ion-footer>
+  
+  <ion-toolbar>
+  
+  <ion-row class="message_row">
+  
+  <ion-col col-9>
+  
+  <ion-item no-lines>
+  
+  <ion-input type="text" placeholder="Enter Message" [(ngModel)]="message"> </ion-input>
+  
+  </ion-item>
+  
+  </ion-col>
+  
+  <ion-col col-3>
+  
+  <button ion-button clear color="primary" (click)="sendMessage(message)">
+  
+  Send
+  
+  </button>
+  
+  </ion-col>
+  
+  </ion-row>
+  
+  </ion-toolbar>
+  
+  </ion-footer>
